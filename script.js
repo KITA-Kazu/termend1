@@ -5,7 +5,6 @@ const quizData = {
         title: "Lesson 1: The Anchoring Effect (Restaurant)",
         original: "This is the menu of a steak restaurant. The most expensive meal in the restaurant is at the top. The prices are lower toward the bottom. The B and C meals may seem very reasonable to you. Actually, they are not. However, you end up ordering one of them. Why? It is because you see the highest price first. This is an example of the anchoring effect. When you make decisions, you rely on the first piece of information too heavily. An anchor is used to stop a ship from moving. The first piece of information works as an anchor, and you cannot get away from it.",
         mistakeFinder: {
-            // 【修正】expensivest -> expensiver, independ -> depend に変更
             textWithMistakes: "This is the menu of a steak restaurant. The most expensiver meal in the restaurant is at the top. The prices are lower toward the bottom. The B and C meals may seem very reason to you. Actually, they are not. However, you end up order one of them. Why? It is because you see the highest price first. This is an example of the anchoring effect. When you make decisions, you depend on the first piece of information too heavily. An anchor is used to stopping a ship from moving. The first piece of information works as an anchor, and you cannot get away from it.",
             mistakes: ["expensiver", "reason", "order", "depend", "stopping"],
             answers: ["expensive", "reasonable", "ordering", "rely", "stop"]
@@ -28,22 +27,18 @@ const quizData = {
     },
     "text2": {
         title: "Lesson 2: The Anchoring Effect (Hair Dryer)",
-        // 【修正】ご指摘の通り、より自然な原文に修正
         original: "Suppose that you're thinking about buying a new hair dryer. You visit an appliance store and see the products A and B below. Both are on sale for 10,000 yen. You probably think B is more appealing than A. I'll take B. It’s a better deal. However, is that right? There's a big difference between the two price tags. The tag of B includes the original price of 20,000 yen. It works as an anchor. In this case, you can see the original price, so the discounted price looks like a real bargain.",
         mistakeFinder: {
-            // 【修正】修正した原文に合わせて mistakeFinder の文も修正
             textWithMistakes: "Suppose that you're thinking about buy a new hair dryer. You visit an appliance store and see the products A and B below. Both are on sale for 10,000 yen. You probably think B is more appealed than A. I'll take B. It’s a better meal. However, is that right? There's a big different between the two price tags. The tag of B includes the original price of 20,000 yen. It works as an anchor. In this case, you can see the original price, so the discounted price looks like a real problem.",
             mistakes: ["buy", "appealed", "meal", "different", "problem"],
             answers: ["buying", "appealing", "deal", "difference", "bargain"]
         },
         fillInTheBlank: {
-            // 【修正】修正した原文に合わせて fillInTheBlank の文も修正
             text: "[BLANK] that you're thinking about buying a new hair dryer. You visit an appliance store and see the products A and B below. Both are on [BLANK] for 10,000 yen. You probably think B is more [BLANK] than A. I'll take B. It’s a better deal. However, is that right? There's a big difference between the two price tags. The tag of B [BLANK] the original price of 20,000 yen. It works as an anchor. In this case, you can see the original price, so the discounted price looks like a real [BLANK].",
             wordBank: ["Suppose", "sale", "appealing", "includes", "bargain", "product", "deal", "original"],
             answers: ["Suppose", "sale", "appealing", "includes", "bargain"]
         },
         multipleChoice: {
-            // 【修正】修正した原文に合わせて multipleChoice の文も修正
             text: "Suppose that you're thinking about (1)___ a new hair dryer. You visit an appliance store and see the products A and B below. You probably think B is more (2)___ than A. It’s a better (3)___. The tag of B includes the (4)___ price of 20,000 yen. In this case, you can see the original price, so the discounted price looks like a real (5)___.",
             questions: [
                 { q: "(1)に入るのは？", options: ["buying", "buy", "bought", "to buy"], answer: "buying" },
@@ -56,14 +51,14 @@ const quizData = {
     },
     "text3": {
         title: "Lesson 3: The Anchoring Effect (Cafe)",
-        original: "Do you like spending time with your friends in cafes? When the interior is stylish and the servers treat you well, you are likely to think, “Oh, this place is classy!” This impression can be an anchor too. You probably will not care about the price of the food or drinks, even if they do not taste very good. As you can see, a anchoring effect can have a big impact on your choice or judgment. You should be aware of it. Take a little more time to think before making a decision.",
+        original: "Do you like spending time with your friends in cafes? When the interior is stylish and the servers treat you well, you are likely to think, “Oh, this place is classy!” This impression can be an anchor too. You probably will not care about the price of the food or drinks, even if they do not taste very good. As you can see, the anchoring effect can have a big impact on your choice or judgment. You should be aware of it. Take a little more time to think before making a decision.",
         mistakeFinder: {
-            textWithMistakes: "Do you like spend time with your friends in cafes? When the interior is style and the servers treat you good, you are likely to think, “Oh, this place is classy!” This impression can be an anchor too. You probably will not care about the price of the food or drinks, even if they do not taste very well. As you can see, a anchoring effect can have a big impact on your choice or judgment. You should be award of it. Take a little more time to think before making a decision.",
+            textWithMistakes: "Do you like spend time with your friends in cafes? When the interior is style and the servers treat you good, you are likely to think, “Oh, this place is classy!” This impression can be an anchor too. You probably will not care about the price of the food or drinks, even if they do not taste very well. As you can see, the anchoring effect can have a big impact on your choice or judgment. You should be award of it. Take a little more time to think before making a decision.",
             mistakes: ["spend", "style", "good", "well", "award"],
             answers: ["spending", "stylish", "well", "good", "aware"]
         },
         fillInTheBlank: {
-            text: "Do you like spending time with your friends in cafes? When the interior is [BLANK] and the servers treat you well, you are [BLANK] to think, “Oh, this place is classy!” This impression can be an anchor too. You probably will not [BLANK] about the price of the food or drinks, even if they do not taste very good. As you can see, a anchoring effect can have a big [BLANK] on your choice or judgment. You should be [BLANK] of it. Take a little more time to think before making a decision.",
+            text: "Do you like spending time with your friends in cafes? When the interior is [BLANK] and the servers treat you well, you are [BLANK] to think, “Oh, this place is classy!” This impression can be an anchor too. You probably will not [BLANK] about the price of the food or drinks, even if they do not taste very good. As you can see, the anchoring effect can have a big [BLANK] on your choice or judgment. You should be [BLANK] of it. Take a little more time to think before making a decision.",
             wordBank: ["stylish", "likely", "care", "impact", "aware", "classy", "judgment", "treat"],
             answers: ["stylish", "likely", "care", "impact", "aware"]
         },
@@ -80,16 +75,13 @@ const quizData = {
     },
     "text4": {
         title: "Lesson 4: Animal Welfare (General)",
-        // 【修正】原文の文法ミスを修正 (benefit -> benefits)
         original: "Have you ever heard of animal welfare? This means ensuring the health, comfort and happiness of animals. Animal Welfare is not a new topic in the livestock industry. When farm animals are raised in a comfortable environment, they feel less stressed and become healthier. The result benefits farmers. They can increase productivity and improve the quality of their livestock. Recently, the idea of animal welfare has spread beyond farms. Some zoos and pet shops are beginning to show interest in it. More and more people believe that they should adopt it for all animals under human control.",
         mistakeFinder: {
-            // 【修正】修正した原文に合わせて mistakeFinder の文も修正
             textWithMistakes: "Have you ever hear of animal welfare? This means ensure the health, comfort and happiness of animals. Animal Welfare is not a new topic in the livestock industry. When farm animals are raised in a comfortable environment, they feel more stressed and become healthier. The result benefits customers. They can increase productivity and improve the quality of their livestock. Recently, the idea of animal welfare has spread beyond farms. Some zoos and pet shops are beginning to show interest in it. More and more people believe that they should adapt it for all animals under human control.",
             mistakes: ["hear", "ensure", "more", "customers", "adapt"],
             answers: ["heard", "ensuring", "less", "farmers", "adopt"]
         },
         fillInTheBlank: {
-             // 【修正】修正した原文に合わせて fillInTheBlank の文も修正
             text: "Have you ever heard of animal [BLANK]? This means [BLANK] the health, comfort and happiness of animals. Animal Welfare is not a new topic in the livestock industry. When farm animals are raised in a [BLANK] environment, they feel less stressed and become healthier. The result [BLANK] farmers. They can increase productivity and improve the quality of their livestock. Recently, the idea of animal welfare has spread beyond farms. Some zoos and pet shops are beginning to show interest in it. More and more people believe that they should [BLANK] it for all animals under human control.",
             wordBank: ["welfare", "ensuring", "comfortable", "benefits", "adopt", "health", "result", "spread"],
             answers: ["welfare", "ensuring", "comfortable", "benefits", "adopt"]
@@ -121,7 +113,6 @@ const quizData = {
         multipleChoice: {
             text: "At one high school in Hokkaido, students (1)___ dairy cows. They have learned about animal welfare and (2)___ it to their farm. They use safe electric fences, not barbed wire, so the cows can (3)___ outdoors. One student says, “We succeeded (4)___ reducing the stress of our cows. As a result, their medical costs (5)___.",
             questions: [
-                // 【修正】不自然なスペルミスの選択肢を修正
                 { q: "(1)に入るのは？", options: ["raise", "rise", "arise", "grow"], answer: "raise" },
                 { q: "(2)に入るのは？", options: ["introduced", "introduce", "introducing", "to introduce"], answer: "introduced" },
                 { q: "(3)に入るのは？", options: ["relax", "relaxing", "relaxed", "relaxation"], answer: "relax" },
@@ -133,8 +124,8 @@ const quizData = {
 };
 
 // === アプリケーションのロジック部分 ===
-// (この下の部分は変更ありません。そのままお使いください)
 document.addEventListener('DOMContentLoaded', () => {
+    // (この部分は変更ありません)
     const screens = { modeSelection: document.getElementById('mode-selection-screen'), textSelection: document.getElementById('text-selection-screen'), quiz: document.getElementById('quiz-screen'), };
     const modeButtons = document.querySelectorAll('.mode-btn');
     const textList = document.getElementById('text-list');
@@ -162,15 +153,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = quizData[currentTextId];
         quizTitle.textContent = data.title;
         switch (currentMode) {
-            case 'mistake-finder': generateMistakeFinderQuiz(data); break;
-            case 'fill-in-the-blank': generateFillInTheBlankQuiz(data); break;
-            case 'multiple-choice': generateMultipleChoiceQuiz(data); break;
+            // ▼▼▼【修正点 1】▼▼▼
+            // 関数に渡すデータを、より限定的なものに修正
+            case 'mistake-finder': generateMistakeFinderQuiz(data.mistakeFinder); break;
+            case 'fill-in-the-blank': generateFillInTheBlankQuiz(data.fillInTheBlank); break;
+            case 'multiple-choice': generateMultipleChoiceQuiz(data.multipleChoice); break;
         }
     }
 
-    function generateMistakeFinderQuiz(data) {
+    // ▼▼▼【修正点 1】▼▼▼
+    // 引数名を変更し、間違いなく `textWithMistakes` を参照するように修正
+    function generateMistakeFinderQuiz(mistakeData) {
         const quizText = document.createElement('div');
-        const words = data.mistakeFinder.textWithMistakes.split(/(\s+)/);
+        const words = mistakeData.textWithMistakes.split(/(\s+)/);
         words.forEach(word => {
             if (word.trim() !== '') {
                 const wordSpan = document.createElement('span');
@@ -186,12 +181,14 @@ document.addEventListener('DOMContentLoaded', () => {
         quizArea.appendChild(quizText);
     }
     
-    function generateFillInTheBlankQuiz(data) {
+    // ▼▼▼【修正点 1】▼▼▼
+    // こちらの関数も、より限定的なデータを引数に取るように修正
+    function generateFillInTheBlankQuiz(fillData) {
         const wordBankArea = document.createElement('div');
         wordBankArea.id = 'word-bank-area';
         const sentenceArea = document.createElement('div');
         sentenceArea.id = 'sentence-area';
-        const shuffledBank = [...data.fillInTheBlank.wordBank].sort(() => Math.random() - 0.5);
+        const shuffledBank = [...fillData.wordBank].sort(() => Math.random() - 0.5);
         shuffledBank.forEach(word => {
             const btn = document.createElement('button');
             btn.textContent = word;
@@ -200,27 +197,24 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', () => { if (selectedWordBtn) { selectedWordBtn.classList.remove('selected'); } btn.classList.add('selected'); selectedWordBtn = btn; });
             wordBankArea.appendChild(btn);
         });
-        const textParts = data.fillInTheBlank.text.split('[BLANK]');
+        const textParts = fillData.text.split('[BLANK]');
         let answerIndex = 0;
         textParts.forEach((part, index) => {
             sentenceArea.appendChild(document.createTextNode(part));
             if (index < textParts.length - 1) {
                 const blank = document.createElement('span');
                 blank.className = 'blank-space';
-                blank.dataset.answer = data.fillInTheBlank.answers[answerIndex++];
+                blank.dataset.answer = fillData.answers[answerIndex++];
                 blank.addEventListener('click', () => {
                     if (selectedWordBtn && !blank.textContent) {
                         blank.textContent = selectedWordBtn.dataset.word;
                         blank.dataset.userAnswer = selectedWordBtn.dataset.word;
-                        selectedWordBtn.classList.add('used');
-                        selectedWordBtn.classList.remove('selected');
-                        selectedWordBtn = null;
+                        selectedWordBtn.classList.add('used'); selectedWordBtn.classList.remove('selected'); selectedWordBtn = null;
                     } else if (blank.textContent) {
                         const wordToReturn = blank.textContent;
                         const btnToReturn = wordBankArea.querySelector(`.word-bank-btn[data-word="${wordToReturn}"]`);
                         if (btnToReturn) { btnToReturn.classList.remove('used'); }
-                        blank.textContent = '';
-                        delete blank.dataset.userAnswer;
+                        blank.textContent = ''; delete blank.dataset.userAnswer;
                     }
                 });
                 sentenceArea.appendChild(blank);
@@ -230,14 +224,16 @@ document.addEventListener('DOMContentLoaded', () => {
         quizArea.appendChild(sentenceArea);
     }
 
-    function generateMultipleChoiceQuiz(data) {
+    // ▼▼▼【修正点 1 & 2】▼▼▼
+    // 引数名を変更し、さらに選択肢のシャッフルロジックを強化
+    function generateMultipleChoiceQuiz(choiceData) {
         const quizText = document.createElement('p');
         quizText.style.textAlign = 'left';
         quizText.style.lineHeight = '1.8';
-        quizText.textContent = data.multipleChoice.text;
+        quizText.textContent = choiceData.text;
         quizArea.appendChild(quizText);
 
-        data.multipleChoice.questions.forEach((qData, index) => {
+        choiceData.questions.forEach((qData, index) => {
             const questionDiv = document.createElement('div');
             questionDiv.className = 'choice-question';
             
@@ -249,7 +245,13 @@ document.addEventListener('DOMContentLoaded', () => {
             optionsDiv.className = 'choice-options';
             optionsDiv.dataset.answer = qData.answer;
 
-            const shuffledOptions = [...qData.options].sort(() => Math.random() - 0.5);
+            // ★★★ 修正ポイント 2 ★★★
+            // 選択肢をシャッフル
+            let shuffledOptions = [...qData.options].sort(() => Math.random() - 0.5);
+            // もしシャッフル後の先頭が正解なら、2番目と入れ替える (正解が先頭に来るのを防ぐ)
+            if (shuffledOptions.length > 1 && shuffledOptions[0] === qData.answer) {
+                [shuffledOptions[0], shuffledOptions[1]] = [shuffledOptions[1], shuffledOptions[0]];
+            }
 
             shuffledOptions.forEach(option => {
                 const label = document.createElement('label');
@@ -268,6 +270,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // (checkAnswer以降の関数は変更ありません)
+    function checkAnswer() { /* ... */ }
+    function checkMistakeFinder() { /* ... */ }
+    function checkFillInTheBlank() { /* ... */ }
+    function checkMultipleChoice() { /* ... */ }
+
     function checkAnswer() {
         switch (currentMode) {
             case 'mistake-finder': checkMistakeFinder(); break;
