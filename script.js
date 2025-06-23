@@ -1,5 +1,4 @@
 // === データ部分 ===
-// 【最終修正版】データの不整合や不自然な単語をすべて修正したクイズデータ
 const quizData = {
     "text1": {
         title: "Lesson 1: The Anchoring Effect (Restaurant)",
@@ -77,9 +76,9 @@ const quizData = {
         title: "Lesson 4: Animal Welfare (General)",
         original: "Have you ever heard of animal welfare? This means ensuring the health, comfort and happiness of animals. Animal Welfare is not a new topic in the livestock industry. When farm animals are raised in a comfortable environment, they feel less stressed and become healthier. The result benefits farmers. They can increase productivity and improve the quality of their livestock. Recently, the idea of animal welfare has spread beyond farms. Some zoos and pet shops are beginning to show interest in it. More and more people believe that they should adopt it for all animals under human control.",
         mistakeFinder: {
-            textWithMistakes: "Have you ever hear of animal welfare? This means ensure the health, comfort and happiness of animals. Animal Welfare is not a new topic in the livestock industry. When farm animals are raised in a comfortable environment, they feel more stressed and become healthier. The result benefits customers. They can increase productivity and improve the quality of their livestock. Recently, the idea of animal welfare has spread beyond farms. Some zoos and pet shops are beginning to show interest in it. More and more people believe that they should adapt it for all animals under human control.",
-            mistakes: ["hear", "ensure", "more", "customers", "adapt"],
-            answers: ["heard", "ensuring", "less", "farmers", "adopt"]
+            textWithMistakes: "Have you ever hear of animal welfare? This means ensure the health, comfort and happiness of animals. Animal Welfare is not a new topic in the livestock industry. When farm animals are raised in a comfortable environment, they feel more stressed and become healthier. The result benefit customers. They can increase productivity and improve the quality of their livestock. Recently, the idea of animal welfare has spread beyond farms. Some zoos and pet shops are beginning to show interest in it. More and more people believe that they should adapt it for all animals under human control.",
+            mistakes: ["hear", "ensure", "more", "benefit", "adapt"],
+            answers: ["heard", "ensuring", "less", "benefits", "adopt"]
         },
         fillInTheBlank: {
             text: "Have you ever heard of animal [BLANK]? This means [BLANK] the health, comfort and happiness of animals. Animal Welfare is not a new topic in the livestock industry. When farm animals are raised in a [BLANK] environment, they feel less stressed and become healthier. The result [BLANK] farmers. They can increase productivity and improve the quality of their livestock. Recently, the idea of animal welfare has spread beyond farms. Some zoos and pet shops are beginning to show interest in it. More and more people believe that they should [BLANK] it for all animals under human control.",
@@ -125,7 +124,6 @@ const quizData = {
 
 // === アプリケーションのロジック部分 ===
 document.addEventListener('DOMContentLoaded', () => {
-    // (この部分は変更ありません)
     const screens = { modeSelection: document.getElementById('mode-selection-screen'), textSelection: document.getElementById('text-selection-screen'), quiz: document.getElementById('quiz-screen'), };
     const modeButtons = document.querySelectorAll('.mode-btn');
     const textList = document.getElementById('text-list');
@@ -150,22 +148,22 @@ document.addEventListener('DOMContentLoaded', () => {
         quizArea.innerHTML = '';
         resultArea.innerHTML = '';
         selectedWordBtn = null;
-        const data = quizData[currentTextId];
-        quizTitle.textContent = data.title;
+        const quizSet = quizData[currentTextId];
+        quizTitle.textContent = quizSet.title;
+        
+        // ▼▼▼【根本修正】▼▼▼
+        // 各関数に、その関数が必要とするデータだけを正確に渡すように修正
         switch (currentMode) {
-            // ▼▼▼【修正点 1】▼▼▼
-            // 関数に渡すデータを、より限定的なものに修正
-            case 'mistake-finder': generateMistakeFinderQuiz(data.mistakeFinder); break;
-            case 'fill-in-the-blank': generateFillInTheBlankQuiz(data.fillInTheBlank); break;
-            case 'multiple-choice': generateMultipleChoiceQuiz(data.multipleChoice); break;
+            case 'mistake-finder': generateMistakeFinderQuiz(quizSet.mistakeFinder); break;
+            case 'fill-in-the-blank': generateFillInTheBlankQuiz(quizSet.fillInTheBlank); break;
+            case 'multiple-choice': generateMultipleChoiceQuiz(quizSet.multipleChoice); break;
         }
     }
 
-    // ▼▼▼【修正点 1】▼▼▼
-    // 引数名を変更し、間違いなく `textWithMistakes` を参照するように修正
-    function generateMistakeFinderQuiz(mistakeData) {
+    function generateMistakeFinderQuiz(data) {
         const quizText = document.createElement('div');
-        const words = mistakeData.textWithMistakes.split(/(\s+)/);
+        // `data.textWithMistakes` を確実に使用
+        const words = data.textWithMistakes.split(/(\s+)/);
         words.forEach(word => {
             if (word.trim() !== '') {
                 const wordSpan = document.createElement('span');
@@ -181,14 +179,12 @@ document.addEventListener('DOMContentLoaded', () => {
         quizArea.appendChild(quizText);
     }
     
-    // ▼▼▼【修正点 1】▼▼▼
-    // こちらの関数も、より限定的なデータを引数に取るように修正
-    function generateFillInTheBlankQuiz(fillData) {
+    function generateFillInTheBlankQuiz(data) {
         const wordBankArea = document.createElement('div');
         wordBankArea.id = 'word-bank-area';
         const sentenceArea = document.createElement('div');
         sentenceArea.id = 'sentence-area';
-        const shuffledBank = [...fillData.wordBank].sort(() => Math.random() - 0.5);
+        const shuffledBank = [...data.wordBank].sort(() => Math.random() - 0.5);
         shuffledBank.forEach(word => {
             const btn = document.createElement('button');
             btn.textContent = word;
@@ -197,14 +193,14 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', () => { if (selectedWordBtn) { selectedWordBtn.classList.remove('selected'); } btn.classList.add('selected'); selectedWordBtn = btn; });
             wordBankArea.appendChild(btn);
         });
-        const textParts = fillData.text.split('[BLANK]');
+        const textParts = data.text.split('[BLANK]');
         let answerIndex = 0;
         textParts.forEach((part, index) => {
             sentenceArea.appendChild(document.createTextNode(part));
             if (index < textParts.length - 1) {
                 const blank = document.createElement('span');
                 blank.className = 'blank-space';
-                blank.dataset.answer = fillData.answers[answerIndex++];
+                blank.dataset.answer = data.answers[answerIndex++];
                 blank.addEventListener('click', () => {
                     if (selectedWordBtn && !blank.textContent) {
                         blank.textContent = selectedWordBtn.dataset.word;
@@ -224,42 +220,34 @@ document.addEventListener('DOMContentLoaded', () => {
         quizArea.appendChild(sentenceArea);
     }
 
-    // ▼▼▼【修正点 1 & 2】▼▼▼
-    // 引数名を変更し、さらに選択肢のシャッフルロジックを強化
-    function generateMultipleChoiceQuiz(choiceData) {
+    function generateMultipleChoiceQuiz(data) {
         const quizText = document.createElement('p');
         quizText.style.textAlign = 'left';
         quizText.style.lineHeight = '1.8';
-        quizText.textContent = choiceData.text;
+        quizText.textContent = data.text;
         quizArea.appendChild(quizText);
 
-        choiceData.questions.forEach((qData, index) => {
+        data.questions.forEach((qData, index) => {
             const questionDiv = document.createElement('div');
             questionDiv.className = 'choice-question';
-            
             const questionP = document.createElement('p');
             questionP.textContent = qData.q;
             questionDiv.appendChild(questionP);
-
             const optionsDiv = document.createElement('div');
             optionsDiv.className = 'choice-options';
             optionsDiv.dataset.answer = qData.answer;
 
-            // ★★★ 修正ポイント 2 ★★★
-            // 選択肢をシャッフル
+            // ▼▼▼【シャッフルロジック改良】▼▼▼
             let shuffledOptions = [...qData.options].sort(() => Math.random() - 0.5);
-            // もしシャッフル後の先頭が正解なら、2番目と入れ替える (正解が先頭に来るのを防ぐ)
             if (shuffledOptions.length > 1 && shuffledOptions[0] === qData.answer) {
-                [shuffledOptions[0], shuffledOptions[1]] = [shuffledOptions[1], shuffledOptions[0]];
+                const first = shuffledOptions.shift(); // 先頭（正解）を一旦取り出す
+                shuffledOptions.push(first); // 末尾に追加する
             }
 
             shuffledOptions.forEach(option => {
                 const label = document.createElement('label');
                 const radio = document.createElement('input');
-                radio.type = 'radio';
-                radio.name = `q${index}`;
-                radio.value = option;
-                
+                radio.type = 'radio'; radio.name = `q${index}`; radio.value = option;
                 label.appendChild(radio);
                 label.appendChild(document.createTextNode(` ${option}`));
                 optionsDiv.appendChild(label);
@@ -271,11 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // (checkAnswer以降の関数は変更ありません)
-    function checkAnswer() { /* ... */ }
-    function checkMistakeFinder() { /* ... */ }
-    function checkFillInTheBlank() { /* ... */ }
-    function checkMultipleChoice() { /* ... */ }
-
     function checkAnswer() {
         switch (currentMode) {
             case 'mistake-finder': checkMistakeFinder(); break;
