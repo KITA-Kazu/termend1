@@ -55,7 +55,7 @@ const quizData = {
         mistakeFinder: {
             textWithMistakes: "Do you like spend time with your friends in cafes? When the interior is style and the servers treat you good, you are likely to think, “Oh, this place is classy!” This impression can be an anchor too. You probably will not care about the price of the food or drinks, even if they do not taste very well. As you can see, the anchoring effect can have a big impact of your choice or judgment. You should be aware of it. Take a little more time to think before making a decision.",
             mistakes: ["spend", "style", "good", "well", "on"],
-            answers: ["spending", "stylish", "well", "good", "on"]
+            answers: ["spending", "stylish", "well", "good", "of"]
         },
         fillInTheBlank: {
             text: "Do you like spending time with your friends in cafes? When the interior is [BLANK] and the servers treat you well, you are [BLANK] to think, “Oh, this place is classy!” This impression can be an anchor too. You probably will not [BLANK] about the price of the food or drinks, even if they do not taste very good. As you can see, the anchoring effect can have a big [BLANK] on your choice or judgment. You should be [BLANK] of it. Take a little more time to think before making a decision.",
