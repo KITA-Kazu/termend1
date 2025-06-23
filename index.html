@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英語学習アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>高校生向け 英語学習アプリ</h1>
+        </header>
+
+        <!-- ステップ1: 学習形式の選択 -->
+        <div id="mode-selection-screen" class="screen active">
+            <h2>学習したい形式を選んでください</h2>
+            <div class="selection-buttons">
+                <button class="mode-btn" data-mode="mistake-finder">① 間違いさがし</button>
+                <button class="mode-btn" data-mode="fill-in-the-blank">② 単語補充</button>
+                <button class="mode-btn" data-mode="multiple-choice">③ 選択式</button>
+            </div>
+        </div>
+
+        <!-- ステップ2: 英文の選択 -->
+        <div id="text-selection-screen" class="screen">
+            <h2>挑戦する英文を選んでください</h2>
+            <div id="text-list" class="selection-buttons">
+                <!-- JavaScriptによって英文リストがここに追加されます -->
+            </div>
+            <button id="back-to-mode-selection">形式選択に戻る</button>
+        </div>
+
+        <!-- ステップ3: クイズ画面 -->
+        <div id="quiz-screen" class="screen">
+            <h2 id="quiz-title"></h2>
+            <div id="quiz-area">
+                <!-- JavaScriptによってクイズがここに生成されます -->
+            </div>
+            <div class="quiz-controls">
+                <button id="check-answer-btn">答え合わせ</button>
+                <button id="back-to-text-selection">英文選択に戻る</button>
+            </div>
+            <div id="result-area"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
